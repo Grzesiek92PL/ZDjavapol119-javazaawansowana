@@ -1,4 +1,4 @@
-package com.sda.oop;
+package com.sda.oop.exercices.point2d;
 
 public class Point2D implements Comparable<Point2D> {
 
