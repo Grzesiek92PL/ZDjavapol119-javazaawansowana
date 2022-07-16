@@ -19,6 +19,9 @@ public class MyMapExample {
         myMap.put("Hanna", 7);
 
         System.out.println("Wyświetlenie zawartości");
+        for(String key : myMap.keySet()) {
+            System.out.println("Key: " + key + ", Value: " + myMap.get(key));
+        }
         for (Map.Entry<String, Integer> pair : myMap.entrySet()) {
             System.out.println("Key: " + pair.getKey() + ", Value: " + pair.getValue());
         }
@@ -65,8 +68,6 @@ public class MyMapExample {
         }
 
         duplicateCounter_2.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
-
-
 
 
         System.out.println("Przykład na stream!");
