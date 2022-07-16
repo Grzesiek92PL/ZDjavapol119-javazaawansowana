@@ -18,8 +18,12 @@ public class MyListExample {
         myList.add(Integer.valueOf("100"));
         myList.add(20);
 
+        //Równoważne przykłady
         for (Integer element : myList) {
             System.out.println(element);
+        }
+        for (int i = 0; i < myList.size(); i++) {
+            System.out.println(myList.get(i));
         }
 
         System.out.println("Wyszukiwanie elemntów po indexie");
