@@ -6,7 +6,6 @@ public class MyMapExample {
 
     public static void main(String[] args) {
 
-
         Map<String, Integer> myMap = new HashMap<>();
 
         myMap.put("Jacek", 20);
@@ -49,5 +48,18 @@ public class MyMapExample {
         for (Map.Entry<Integer, Integer> pair : duplicateCounter.entrySet()) {
             System.out.println("Key: " + pair.getKey() + ", Value: " + pair.getValue());
         }
+
+        duplicateCounter.keySet().forEach(System.out::println);
+        for (Integer number : duplicateCounter.values()) {
+            System.out.println(number);
+        }
+
+        Map<Integer, Integer> duplicateCounter_2 = new HashMap<>();
+
+        for (Integer i : numbers) {
+            duplicateCounter_2.merge(i, 1, Integer::sum);
+        }
+
+        duplicateCounter_2.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
     }
 }
