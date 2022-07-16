@@ -1,5 +1,7 @@
 package com.sda.oop.exercices.person_student_staff;
 
+import java.util.Objects;
+
 public class Person {
 
     private String name;
@@ -29,5 +31,18 @@ public class Person {
     @Override
     public String toString() {
         return name + "->" + address;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(name, person.name) && Objects.equals(address, person.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, address);
     }
 }
