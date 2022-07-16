@@ -1,6 +1,10 @@
 package com.sda.collections.map;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MyMapExample {
 
@@ -33,7 +37,7 @@ public class MyMapExample {
         System.out.println(myMap.get("Piotr"));
 
         Map<Integer, Integer> duplicateCounter = new HashMap<>();
-        List<Integer> numbers = Arrays.asList(1, 2, 1, 3, 17, 17, 20, 11, 11, 3, 1, 1);
+        List<Integer> numbers = Arrays.asList(1, 2, 1, 3, 17, 17, 20, 11, 11, 3, 1, 1, 3);
 
         for (Integer number : numbers) {
             if (duplicateCounter.get(number) == null) {
@@ -61,5 +65,17 @@ public class MyMapExample {
         }
 
         duplicateCounter_2.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
+
+
+
+
+        System.out.println("Przykład na stream!");
+        List<Integer> result = duplicateCounter_2.entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() > 2)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+
+        result.forEach(System.out::println);
     }
 }
