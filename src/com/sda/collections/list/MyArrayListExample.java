@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class MyListExample {
+public class MyArrayListExample {
 
     public static void main(String[] args) {
 
@@ -73,5 +73,6 @@ public class MyListExample {
         for (Integer element : myList) {
             System.out.println(element);
         }
+
     }
 }
