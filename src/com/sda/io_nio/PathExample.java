@@ -37,5 +37,11 @@ public class PathExample {
         System.out.println(newFile.toUri());
 
         Files.delete(newFile);
+
+        Path part = Path.of(rootPath.toAbsolutePath().toString(), "dir_a", "dir_b");
+
+
+        System.out.println(part.toAbsolutePath());
+        Files.createDirectories(part);
     }
 }
