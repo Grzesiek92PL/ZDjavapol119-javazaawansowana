@@ -22,5 +22,14 @@ public class OptionalExample {
 
         optional_1.ifPresent(System.out::println);
 
+        Optional<String> optionalWithNull = Optional.ofNullable(null);
+        String value = optionalWithNull.orElse("Wartość w przypadku null");
+        System.out.println("Wynik metody 'orElse' = " + value);
+
+        System.out.println(optionalWithNull.orElseGet(() -> "Some default value"));
+        System.out.println(optionalWithNull.orElseGet(() -> new String("Some value")));
+
+        optionalWithNull.orElseThrow(NullPointerException::new);
+
     }
 }
