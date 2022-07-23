@@ -15,7 +15,7 @@ public class BankTest {
                 try {
                     while (true) {
                         int toAccount = (int) (bank.size() * Math.random());
-                        double amount = MAX_AMOUNT * Math.random();
+                        double amount = 2 * MAX_AMOUNT * Math.random();
                         bank.transfer(fromAccount, toAccount, amount);
                         Thread.sleep((int) (DELAY * Math.random()));
                     }

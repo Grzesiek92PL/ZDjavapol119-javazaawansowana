@@ -11,16 +11,17 @@ public class Bank {
         Arrays.fill(accounts, initialBalance);
     }
 
-    public void transfer(int from, int to, double amount) {
+    public void transfer(int from, int to, double amount) throws InterruptedException {
         synchronized (this) {
-            if (accounts[from] < amount) {
-                return;
+            while (accounts[from] < amount) {
+                wait();
             }
             System.out.println(Thread.currentThread());
             accounts[from] -= amount;
             System.out.printf(" %10.2f z %d na %d", amount, from, to);
             accounts[to] += amount;
             System.out.printf(" Saldo ogólne: %10.2f%n", getTotalBalance());
+            notify();
         }
     }
 
