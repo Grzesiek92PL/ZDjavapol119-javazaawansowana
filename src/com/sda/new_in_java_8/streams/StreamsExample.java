@@ -1,5 +1,7 @@
 package com.sda.new_in_java_8.streams;
 
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -22,7 +24,6 @@ public class StreamsExample {
         System.out.println("\n Wynika sortowania \n");
         result.forEach(System.out::println);
 
-
         List<Integer> hashCodes = stringList.stream()
                 .map(String::hashCode)
                 .sorted()
@@ -31,14 +32,25 @@ public class StreamsExample {
         System.out.println("\n Hash code'y \n");
         hashCodes.forEach(System.out::println);
 
+
+        //Przykład zaawansowany
         Map<String, Integer> myMap_1 = stringList.stream()
                 .collect(Collectors.toMap(String::new, String::hashCode));
-
 
         hashCodes.forEach(System.out::println);
 
         System.out.println("\n Para String -> HashCode \n");
         myMap_1.forEach((k, v) -> System.out.println(k + " -> " + v));
 
+        myMap_1.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .forEach(e -> System.out.println(e.getKey() + " -> " + e.getValue()));
+
+        stringList.stream()
+                .collect(Collectors.toMap(String::new, String::hashCode))
+                .entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByKey())
+                .forEach(e -> System.out.println(e.getKey() + " -> " + e.getValue()));
     }
 }
